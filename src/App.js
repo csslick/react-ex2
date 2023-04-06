@@ -1,19 +1,22 @@
 import './App.css';
 import ColorButton from './components/ColorButton';
 import Foods from './components/Foods';
+import { useState } from 'react';
 
 function App() {
+  // let count = 0; // 카운트 변수
+  // 상태변수(화면에 업데이트 되는 변수에 사용하는 것임)
+  const [count, setCount] = useState(0);
+
+  const addCount = () => {
+    setCount(count + 1);
+  }
+  console.log(count);
+
   return (
     <div className="App">
-      <h1>Button Component</h1>
-      <Foods>
-        <li>김밥</li>
-        <li>만두</li>
-        <li>순대</li>
-      </Foods>
-      <ColorButton color='red' text="구매하기" />
-      <ColorButton color='green' text="장바구니" />
-      <ColorButton color='yellow'>text content</ColorButton>
+      <p>count: { count }</p>
+      <button onClick={addCount}>count++</button>
     </div>
   );
 }
